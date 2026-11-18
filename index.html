@@ -190,7 +190,7 @@ ul.clean li::before{content:"";position:absolute;left:2px;top:15px;width:7px;hei
 .status-strip .card b{display:block;color:var(--text);font-family:Sora;margin-bottom:4px}
 
 /* flow */
-.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:step}
 .flow .step{position:relative;padding:18px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(2,12,18,.6)}
 .flow .step::before{counter-increment:step;content:"0" counter(step);font-family:"JetBrains Mono";font-size:12px;color:var(--aqua);display:block;margin-bottom:8px}
 .flow .step b{display:block;color:var(--text);font-size:15px;margin-bottom:4px}
@@ -249,11 +249,20 @@ pre.code{font-family:"JetBrains Mono",monospace;font-size:13.5px;line-height:1.8
 pre.code .m{color:var(--aqua);display:inline-block;width:62px}
 pre.code .c{color:var(--dim)}
 
+.learning{border-style:dashed;border-color:var(--line-2)}
+.learning h3::after{content:" · in progress";font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--aqua);font-weight:400}
+
 /* other projects */
 .proj{display:flex;flex-direction:column;gap:10px;transition:.25s}
 .proj:hover{border-color:var(--line-2);transform:translateY(-3px)}
 .proj .tagrow{margin-top:auto;padding-top:8px}
 .proj a.repo{font-size:14px;font-weight:600}
+
+.proj-links{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.demo-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--text);padding:8px 14px;border-radius:999px;border:1px solid var(--line-2);background:rgba(46,230,214,.06);transition:.2s}
+.demo-link:hover{border-color:var(--aqua);box-shadow:0 0 16px -4px rgba(46,230,214,.6)}
+.play{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--aqua),var(--sea));color:#02121a;font-size:10px;padding-left:2px}
+.btn.demo .play{background:#02121a;color:var(--aqua)}
 
 /* contact */
 .contact{text-align:center;padding:110px 0}
@@ -303,7 +312,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <a class="btn primary" href="#projects">See my projects</a>
           <a class="btn ghost" href="https://mail.google.com/mail/?view=cm&fs=1&to=changeworldaftersomething@gmail.com">Email me</a>
         </div>
-        <div class="now"><span class="pulse"></span><p><b>Building right now:</b> TalkMe voice and video calling, and the SchoolSphere school onboarding and approval backend.</p></div>
+        <div class="now"><span class="pulse"></span><p><b>Building right now:</b> TalkMe voice and video calling, and the rest of the SchoolSphere backend.</p></div>
       </div>
       <div class="tank" aria-label="Raj Kumar">
         <div class="glass"></div>
@@ -346,7 +355,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <li><b>Backend · 5 months</b><p>Node.js, Express and MongoDB: REST APIs, authentication, Socket.IO and push notifications.</p></li>
       <li><b>TalkMe and MiniGPT</b><p>A WhatsApp-style messaging app and an AI assistant with streaming replies.</p></li>
       <li><b>Food delivery and SchoolSphere</b><p>Software for people who need it: village restaurants and Indian schools.</p></li>
-      <li><b>Now</b><p>Calling with WebRTC, a voice command feature, and SchoolSphere’s school onboarding, payment and approval flow.</p></li>
+      <li><b>Now</b><p>Calling with WebRTC, a voice command feature, and the rest of the SchoolSphere backend.</p></li>
     </ol>
   </div>
 </section>
@@ -360,9 +369,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <div class="card reveal"><h3>Frontend</h3><div class="chips"><span class="chip">React Native</span><span class="chip">React.js</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">HTML</span><span class="chip">CSS</span></div></div>
       <div class="card reveal"><h3>Backend</h3><div class="chips"><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">TypeScript</span><span class="chip">REST APIs</span><span class="chip">JWT auth</span></div></div>
       <div class="card reveal"><h3>Database</h3><div class="chips"><span class="chip">MongoDB</span><span class="chip">Mongoose</span><span class="chip">MySQL</span></div></div>
-      <div class="card reveal"><h3>System design</h3><div class="chips"><span class="chip">API design</span><span class="chip">Schema design</span><span class="chip">Role-based access</span><span class="chip">Auth flows</span><span class="chip">Backend architecture</span></div></div>
-      <div class="card reveal"><h3>LLM</h3><div class="chips"><span class="chip">LLM API integration</span><span class="chip">Groq</span><span class="chip">Llama & Qwen</span><span class="chip">Whisper</span><span class="chip">Prompt engineering</span><span class="chip">Streaming (SSE)</span><span class="chip">Tool calling</span></div></div>
       <div class="card reveal"><h3>Tools</h3><div class="chips"><span class="chip">Git & GitHub</span><span class="chip">VS Code</span><span class="chip">Postman</span><span class="chip">Socket.IO</span><span class="chip">Firebase</span><span class="chip">Vite</span><span class="chip">Claude</span><span class="chip">Gemini</span><span class="chip">ChatGPT</span></div></div>
+      <div class="card reveal learning"><h3>Learning now</h3><p style="font-size:14px;margin-top:4px">Using these in my projects while I learn them properly.</p><div class="chips"><span class="chip">LLM API integration</span><span class="chip">Groq</span><span class="chip">Streaming (SSE)</span><span class="chip">System design</span><span class="chip">Database schema design</span><span class="chip">Role-based access</span></div></div>
     </div>
   </div>
 </section>
@@ -379,10 +387,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <div class="feature-head">
         <div class="eyebrow" style="margin-bottom:10px">Featured · SchoolSphere</div>
         <h2 style="font-size:clamp(24px,3.4vw,34px)">A school management app where only real, verified schools get in</h2>
-        <p class="lead" style="margin-top:10px">A React Native app with a Node.js, Express and MongoDB backend. A principal creates the school, pays, and waits for approval. Teachers and students can only join a school that has been approved, and only if the school has already added them.</p>
+        <p class="lead" style="margin-top:10px">React Native app with a Node.js, Express and MongoDB backend. The full app frontend is done. A school goes live only after the super admin approves it, and I’m now building the rest of the backend.</p>
         <div class="tagrow">
-          <span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">JWT</span><span class="tag">Role-based access</span><span class="tag">Admin panel</span>
+          <span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">JWT</span><span class="tag">Admin panel</span>
         </div>
+        <div class="btns" style="margin-top:20px"><a class="btn primary demo" href="https://youtu.be/brz2iqUphpQ" target="_blank" rel="noopener"><span class="play">▶</span>Watch demo</a></div>
       </div>
 
       <div class="feature-body">
@@ -390,20 +399,19 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <div class="block">
           <div class="block-title">01 · Where it stands today</div>
           <div class="status-strip">
-            <div class="card"><b>Working</b><p>Login and signup with JWT, and roles for super admin, principal, teacher and student.</p></div>
-            <div class="card"><b>Built, being merged</b><p>School creation with the ₹20,000 payment step and super admin approval. This is being moved into the main code properly.</p></div>
-            <div class="card"><b>Data</b><p>One demo school for testing. Real data for about 100 schools comes next, using the same Excel template.</p></div>
+            <div class="card"><b>Frontend: done</b><p>Every screen of the app is built in React Native.</p></div>
+            <div class="card"><b>Backend: started</b><p>Authentication, school creation request by the principal, and super admin approval are working.</p></div>
+            <div class="card"><b>Remaining</b><p>The rest of the backend: teachers, students, classes, attendance, exams and results.</p></div>
           </div>
         </div>
 
         <div class="block">
           <div class="block-title">02 · How a school joins</div>
           <div class="flow">
-            <div class="step"><b>Principal pays</b><p>Step 1 of creating a school is the ₹20,000 create-school fee.</p></div>
-            <div class="step"><b>Fills school details</b><p>Name, address, classes and staff are saved in the backend as “pending”.</p></div>
-            <div class="step"><b>Super admin reviews</b><p>The app owner checks the school in the admin panel.</p></div>
-            <div class="step"><b>Approved → subscription starts</b><p>The plan starts on approval, not on payment. It’s set to 1 day while testing.</p></div>
-            <div class="step"><b>Teachers & students join</b><p>They can only join an approved school, and only if their record already exists in it.</p></div>
+            <div class="step"><b>Principal signs up</b><p>Logs in and opens “Create school”.</p></div>
+            <div class="step"><b>Sends a request</b><p>School details are saved in the backend as “pending”.</p></div>
+            <div class="step"><b>Super admin approves</b><p>The app owner reviews the request in the admin panel.</p></div>
+            <div class="step"><b>School goes live</b><p>Only now can the school be used and its people added.</p></div>
           </div>
         </div>
 
@@ -411,85 +419,30 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <div class="block-title">03 · Problems I hit, and how I solved them</div>
           <div class="cs">
             <div class="cs-row">
-              <div class="prob"><small>Problem</small><b>Anyone could create a fake school</b><p>An open signup lets anyone call themselves a principal and fill the system with junk.</p></div>
-              <div class="sol"><small>Solution</small><b>Payment first, then manual approval</b><p>Creating a school costs ₹20,000 as step 1, and the school stays pending until the super admin approves it.</p></div>
+              <div class="prob"><small>Problem</small><b>Anyone could create a fake school</b><p>With open signup, anyone can call themselves a principal and fill the system with junk schools.</p></div>
+              <div class="sol"><small>Solution</small><b>Request first, then admin approval</b><p>A new school stays “pending” until the super admin approves it. Unapproved schools can’t be used.</p></div>
             </div>
             <div class="cs-row">
               <div class="prob"><small>Problem</small><b>Fake teachers and students joining</b><p>If anyone can join with a school code, outsiders can get into a class.</p></div>
-              <div class="sol"><small>Solution</small><b>The backend keeps the real list of who belongs</b><p>The school adds its teachers and students first. A join only works if it matches one of those records.</p></div>
-            </div>
-            <div class="cs-row">
-              <div class="prob"><small>Problem</small><b>Schools lost paid days while waiting</b><p>If the subscription started at payment, the days spent waiting for approval would be wasted.</p></div>
-              <div class="sol"><small>Solution</small><b>The clock starts at approval</b><p>The subscription starts only when the super admin approves the school.</p></div>
+              <div class="sol"><small>Solution · building next</small><b>Join only if the school added you</b><p>The school adds its teachers and students first. A join only works if it matches one of those records.</p></div>
             </div>
             <div class="cs-row">
               <div class="prob"><small>Problem</small><b>Two backends for one app</b><p>Firebase and the Express API both held app data, so there were two places to keep in sync and secure.</p></div>
               <div class="sol"><small>Solution</small><b>Removed Firebase completely</b><p>Auth and all school data now live in one Express + MongoDB backend.</p></div>
             </div>
-            <div class="cs-row">
-              <div class="prob"><small>Problem</small><b>Loading 100 schools by hand</b><p>Typing every school, class, teacher and student into the app doesn’t scale.</p></div>
-              <div class="sol"><small>Solution</small><b>One Excel template for every school</b><p>The demo school was built from the template. Real schools will be imported the same way and pass the same checks.</p></div>
-            </div>
-            <div class="cs-row">
-              <div class="prob"><small>Problem</small><b>Backend changes breaking the UI</b><p>Rebuilding the flow could change screens that already worked.</p></div>
-              <div class="sol"><small>Solution</small><b>The UI stays as it is</b><p>The new flow reuses the existing screens and styles. Only the backend and the logic change.</p></div>
-            </div>
           </div>
         </div>
 
         <div class="block">
-          <div class="block-title">04 · Who uses it</div>
-          <div class="roles">
-            <div class="role"><b>Super admin</b><p>The app owner. Approves or rejects new schools and controls subscriptions.</p></div>
-            <div class="role"><b>Principal</b><p>Creates and pays for the school, then manages its teachers, students, classes and settings.</p></div>
-            <div class="role"><b>Teacher</b><p>Marks attendance, enters marks and posts homework for their own classes only.</p></div>
-            <div class="role"><b>Student & parent</b><p>See their own attendance, results and report. Nothing else.</p></div>
-            <div class="role later"><b>Government · later</b><p>Read-only totals by state and district. Cannot edit school records.</p></div>
-          </div>
-        </div>
-
-        <div class="block">
-          <div class="block-title">05 · Architecture</div>
-          <div class="arch">
-            <div class="layer"><b>React Native app</b><p>One app for every role. The screens shown depend on the logged-in role.</p></div>
-            <div class="arrow">↓ HTTPS · JWT</div>
-            <div class="layer"><b>Express API on Node.js</b><p>Auth → role guard → school-status check (pending / approved) → validation → controllers</p></div>
-            <div class="arrow">↓</div>
-            <div class="layer"><b>MongoDB</b>
-              <div class="collections"><span class="tag">schools</span><span class="tag">payments</span><span class="tag">subscriptions</span><span class="tag">users</span><span class="tag">teachers</span><span class="tag">students</span><span class="tag">classes</span><span class="tag">attendance</span><span class="tag">exams</span><span class="tag">results</span></div>
-              <p style="margin-top:8px">Every record carries its schoolId, so a user can only ever reach their own school’s data.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="block">
-          <div class="block-title">06 · Modules</div>
-          <div class="grid-2">
-            <table class="mods">
-              <tr><td>Authentication and roles</td><td><span class="pill done">Done</span></td></tr>
-              <tr><td>Create school + ₹20,000 payment</td><td><span class="pill built">Built</span></td></tr>
-              <tr><td>Super admin approval panel</td><td><span class="pill built">Built</span></td></tr>
-              <tr><td>Subscription starts on approval</td><td><span class="pill built">Built</span></td></tr>
-              <tr><td>Excel import for real schools</td><td><span class="pill next">Next</span></td></tr>
-            </table>
-            <table class="mods">
-              <tr><td>Teachers, students, classes</td><td><span class="pill next">Next</span></td></tr>
-              <tr><td>Attendance</td><td><span class="pill plan">Planned</span></td></tr>
-              <tr><td>Exams and results</td><td><span class="pill plan">Planned</span></td></tr>
-              <tr><td>Homework and announcements</td><td><span class="pill plan">Planned</span></td></tr>
-              <tr><td>State / government dashboards</td><td><span class="pill plan">Planned</span></td></tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="block">
-          <div class="block-title">07 · Example routes</div>
-<pre class="code"><span class="m">POST</span> /api/auth/login
-<span class="m">POST</span> /api/schools                      <span class="c"># principal creates school after payment → pending</span>
-<span class="m">PATCH</span> /api/admin/schools/:id/approve   <span class="c"># super admin approves → subscription starts</span>
-<span class="m">POST</span> /api/schools/:schoolId/join       <span class="c"># works only if the record already exists</span>
-<span class="m">GET</span>  /api/schools/:schoolId/teachers
-<span class="m">POST</span> /api/classes/:classId/attendance  <span class="c"># planned</span></pre>
+          <div class="block-title">04 · Modules</div>
+          <table class="mods" style="max-width:640px">
+            <tr><td>Frontend (all screens)</td><td><span class="pill done">Done</span></td></tr>
+            <tr><td>Authentication and roles</td><td><span class="pill done">Done</span></td></tr>
+            <tr><td>Create school request by principal</td><td><span class="pill done">Done</span></td></tr>
+            <tr><td>Super admin approval</td><td><span class="pill done">Done</span></td></tr>
+            <tr><td>Teachers, students and classes</td><td><span class="pill next">Next</span></td></tr>
+            <tr><td>Attendance, exams and results</td><td><span class="pill plan">Planned</span></td></tr>
+          </table>
         </div>
 
       </div>
@@ -501,20 +454,21 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <div class="eyebrow" style="margin:0">Messaging</div>
         <h3>TalkMe</h3>
         <p>A WhatsApp-style chat app with real-time messaging over Socket.IO. Voice and video calling with WebRTC is in progress.</p>
-        <a class="repo" href="https://github.com/rajchangeworld/Talk-me">GitHub →</a>
+        <div class="proj-links"><a class="demo-link" href="https://youtu.be/PnVravJYIC4" target="_blank" rel="noopener"><span class="play">▶</span>Watch demo</a><a class="repo" href="https://github.com/rajchangeworld/Talk-me" target="_blank" rel="noopener">GitHub →</a></div>
         <div class="tagrow"><span class="tag">React Native</span><span class="tag">Socket.IO</span><span class="tag">Node.js</span><span class="tag">WebRTC</span></div>
       </div>
       <div class="card proj reveal">
         <div class="eyebrow" style="margin:0">AI assistant</div>
         <h3>MiniGPT</h3>
         <p>A ChatGPT-style assistant for Android, iOS and web. It streams replies from a Groq LLM, saves chat history in the backend, and has signup, login and password reset by email.</p>
-        <a class="repo" href="https://github.com/rajchangeworld/mini-ai">GitHub →</a>
+        <div class="proj-links"><a class="demo-link" href="https://youtu.be/FgD_hPG0luQ" target="_blank" rel="noopener"><span class="play">▶</span>Watch demo</a><a class="repo" href="https://github.com/rajchangeworld/mini-ai" target="_blank" rel="noopener">GitHub →</a></div>
         <div class="tagrow"><span class="tag">React Native CLI</span><span class="tag">Groq</span><span class="tag">SSE</span><span class="tag">Express</span></div>
       </div>
       <div class="card proj reveal">
         <div class="eyebrow" style="margin:0">Local business</div>
         <h3>Food delivery</h3>
         <p>A food ordering app for village restaurants that big delivery platforms don’t cover.</p>
+        <div class="proj-links"><a class="demo-link" href="https://youtu.be/68IowzW-xpQ" target="_blank" rel="noopener"><span class="play">▶</span>Watch demo</a></div>
         <div class="tagrow"><span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div>
       </div>
     </div>
