@@ -264,6 +264,38 @@ pre.code .c{color:var(--dim)}
 .play{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--aqua),var(--sea));color:#02121a;font-size:10px;padding-left:2px}
 .btn.demo .play{background:#02121a;color:var(--aqua)}
 
+.proj{cursor:pointer}
+.proj:focus-visible{outline:2px solid var(--aqua);outline-offset:3px}
+.more{font-size:14px;font-weight:600;color:var(--aqua);margin-top:2px}
+.proj:hover .more{text-decoration:underline}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-bg{position:absolute;inset:0;background:rgba(1,5,8,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:fade .25s}
+.modal-box{position:relative;width:100%;max-width:880px;max-height:calc(100vh - 40px);overflow-y:auto;
+  border:1px solid var(--line-2);border-radius:22px;
+  background:radial-gradient(700px 260px at 90% 0%, rgba(34,167,240,.16), transparent 70%),linear-gradient(180deg,#061c27,#020b11);
+  box-shadow:0 30px 100px -20px rgba(46,230,214,.35);padding:34px 32px;animation:pop .3s ease}
+@keyframes fade{from{opacity:0}}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}}
+.modal-x{position:sticky;top:0;float:right;margin:-14px -10px 0 0;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-2);background:#031118;color:var(--text);cursor:pointer;font-size:15px;z-index:3}
+.modal-x:hover{border-color:var(--aqua);color:var(--aqua)}
+.m-head h2{font-size:clamp(24px,3.6vw,34px);margin:4px 0 8px}
+.m-sec{margin-top:30px}
+.m-sec h4{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--aqua);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.m-feats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.m-feats div{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:rgba(2,12,18,.6)}
+.m-feats b{display:block;color:var(--text);font-size:15px;margin-bottom:2px}
+.m-feats p{font-size:14px;line-height:1.5}
+.m-next li{color:var(--muted)}
+@media (max-width:640px){
+  .modal{padding:0;align-items:flex-end}
+  .modal-box{max-height:92vh;border-radius:22px 22px 0 0;padding:26px 18px}
+  .m-feats{grid-template-columns:1fr}
+}
+body.lock{overflow:hidden}
+
 /* contact */
 .contact{text-align:center;padding:110px 0}
 .contact .card{max-width:760px;margin:0 auto;padding:48px 28px;
@@ -450,26 +482,29 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
     <!-- OTHER PROJECTS -->
     <div class="grid-3" style="margin-top:22px">
-      <div class="card proj reveal">
-        <div class="eyebrow" style="margin:0">Messaging</div>
+      <div class="card proj reveal" data-proj="talkme" role="button" tabindex="0" aria-label="Open TalkMe details">
+        <div class="eyebrow" style="margin:0">Real-time messaging</div>
         <h3>TalkMe</h3>
-        <p>A WhatsApp-style chat app with real-time messaging over Socket.IO. Voice and video calling with WebRTC is in progress.</p>
+        <p>A WhatsApp-style app with 1-to-1 and group chat, media, status, push notifications, and voice/video calling in progress.</p>
+        <span class="more">View full details →</span>
         <div class="proj-links"><a class="demo-link" href="https://youtu.be/PnVravJYIC4" target="_blank" rel="noopener"><span class="play">▶</span>Watch demo</a><a class="repo" href="https://github.com/rajchangeworld/Talk-me" target="_blank" rel="noopener">GitHub →</a></div>
-        <div class="tagrow"><span class="tag">React Native</span><span class="tag">Socket.IO</span><span class="tag">Node.js</span><span class="tag">WebRTC</span></div>
+        <div class="tagrow"><span class="tag">React Native</span><span class="tag">Socket.IO</span><span class="tag">FCM</span><span class="tag">WebRTC</span></div>
       </div>
-      <div class="card proj reveal">
+      <div class="card proj reveal" data-proj="minigpt" role="button" tabindex="0" aria-label="Open MiniGPT details">
         <div class="eyebrow" style="margin:0">AI assistant</div>
         <h3>MiniGPT</h3>
-        <p>A ChatGPT-style assistant for Android, iOS and web. It streams replies from a Groq LLM, saves chat history in the backend, and has signup, login and password reset by email.</p>
+        <p>A ChatGPT-style app for Android, iOS and web with streaming replies, chat history, file uploads and voice input.</p>
+        <span class="more">View full details →</span>
         <div class="proj-links"><a class="demo-link" href="https://youtu.be/FgD_hPG0luQ" target="_blank" rel="noopener"><span class="play">▶</span>Watch demo</a><a class="repo" href="https://github.com/rajchangeworld/mini-ai" target="_blank" rel="noopener">GitHub →</a></div>
-        <div class="tagrow"><span class="tag">React Native CLI</span><span class="tag">Groq</span><span class="tag">SSE</span><span class="tag">Express</span></div>
+        <div class="tagrow"><span class="tag">React Native</span><span class="tag">Groq</span><span class="tag">SSE</span><span class="tag">Whisper</span></div>
       </div>
-      <div class="card proj reveal">
-        <div class="eyebrow" style="margin:0">Local business</div>
-        <h3>Food delivery</h3>
-        <p>A food ordering app for village restaurants that big delivery platforms don’t cover.</p>
-        <div class="proj-links"><a class="demo-link" href="https://youtu.be/68IowzW-xpQ" target="_blank" rel="noopener"><span class="play">▶</span>Watch demo</a></div>
-        <div class="tagrow"><span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div>
+      <div class="card proj reveal" data-proj="food" role="button" tabindex="0" aria-label="Open Food Delivery details">
+        <div class="eyebrow" style="margin:0">Web app</div>
+        <h3>Food Delivery</h3>
+        <p>A full-stack food ordering system with menu, cart, checkout, order tracking, OTP login and automated tests.</p>
+        <span class="more">View full details →</span>
+        <div class="proj-links"><a class="demo-link" href="https://youtu.be/68IowzW-xpQ" target="_blank" rel="noopener"><span class="play">▶</span>Watch demo</a><a class="repo" href="https://github.com/rajchangeworld" target="_blank" rel="noopener">GitHub →</a></div>
+        <div class="tagrow"><span class="tag">React.js</span><span class="tag">Vite</span><span class="tag">Express</span><span class="tag">Vitest</span></div>
       </div>
     </div>
   </div>
@@ -492,6 +527,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 </main>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="modal-x" data-close aria-label="Close">✕</button>
+    <div id="mBody"></div>
+  </div>
+</div>
 
 <footer>
   <div class="wrap"><span>© 2026 Raj Kumar</span><a href="#home">Back to top ↑</a></div>
@@ -537,6 +580,113 @@ links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',funct
   window.addEventListener('scroll',update,{passive:true});
   window.addEventListener('resize',update);
   update();
+})();
+// project details
+var PROJ={
+talkme:{
+  kicker:"Real-time messaging & calling",
+  title:"TalkMe",
+  intro:"A WhatsApp-style messaging and calling app I built from scratch: React Native app, Node.js/Express REST API, MongoDB data layer, and Socket.IO for everything real-time.",
+  tags:["React Native","Node.js","Express","MongoDB","Mongoose","Socket.IO","Firebase / FCM","WebRTC","STUN/TURN · Coturn","CallKeep"],
+  links:[["▶ Full demo","https://youtu.be/PnVravJYIC4"],["▶ Backend demo","https://youtu.be/X81bXYAsTKQ"],["GitHub","https://github.com/rajchangeworld/Talk-me"]],
+  feats:[
+    ["Chats","1-to-1, group and community chat over Socket.IO."],
+    ["Ticks and presence","Delivered and seen status (single/double tick) and live online/offline."],
+    ["Rich messages","Images, video, documents, voice notes, location and polls."],
+    ["Push notifications","FCM in foreground and background, including users who are offline."],
+    ["Status","WhatsApp-style status with privacy controls, view tracking and reactions."],
+    ["Controls","Mute chats and notifications, block users, manage contacts."],
+    ["Backend","REST APIs and data models for users, chats, messages, groups, communities, statuses and calls."],
+    ["Login","Authentication with an OTP-based login foundation."]
+  ],
+  cs:[
+    ["Messages must show up instantly","A normal REST API only answers when the app asks, so new messages would arrive late.","Socket.IO keeps a live connection open, so messages, ticks and online status are pushed to the other user right away."],
+    ["Users who are offline miss messages","When the app is closed there is no socket connection, so nothing reaches the phone.","Firebase Cloud Messaging sends push notifications in foreground and background, with handling for messages that arrive while offline."],
+    ["Calls fail between different networks","Two phones on mobile data or Wi-Fi usually can’t connect to each other directly because of NAT.","A Coturn STUN/TURN server helps them find a path, or relays the call when a direct path isn’t possible."],
+    ["Incoming calls when the app is closed","A call is useless if the phone doesn’t ring like a real call.","CallKeep shows the native incoming-call screen, and a CallSession state keeps track of each call."]
+  ],
+  next:["Make voice and video calling production-ready, with stable connections and reconnection after a network drop","AI-powered voice commands","Real SMS OTP verification","Change the theme from black/green to dark navy blue"]
+},
+minigpt:{
+  kicker:"AI chat assistant",
+  title:"MiniGPT",
+  intro:"A ChatGPT-style AI assistant for Android, iOS and web from one React Native codebase, with a Node.js/Express + MongoDB backend and LLMs served through the Groq API.",
+  tags:["React Native","React (Web)","Node.js","Express","MongoDB","Groq API","Llama / Qwen","Whisper","SSE streaming","JWT","Nodemailer"],
+  links:[["▶ Demo video","https://youtu.be/FgD_hPG0luQ"],["GitHub","https://github.com/rajchangeworld/mini-ai"]],
+  feats:[
+    ["One codebase, 3 platforms","Android, iOS and web from the same React Native code."],
+    ["Streaming replies","Answers appear word by word over SSE, with stop and regenerate."],
+    ["Chat history","Like ChatGPT: search, pin, archive and delete chats, with auto-generated titles."],
+    ["Full auth","Email signup/login, email OTP, forgot/reset password, JWT with rotating refresh tokens, logout from all devices."],
+    ["Uploads","Images, camera, PDF and DOCX files, and image understanding with a vision model."],
+    ["Voice input","Speak instead of typing, converted to text with Whisper."],
+    ["AI-made files","Generates images, PDFs and Word files through tool calling."],
+    ["Multiple models","Llama and Qwen models through Groq."]
+  ],
+  cs:[
+    ["Long waits for AI answers","Waiting for the full reply before showing anything makes the app feel slow.","Replies stream over SSE, so text shows up as it’s generated. The user can stop or regenerate at any time."],
+    ["Free API rate limits","On the free Groq tier, a model can hit its limit and the chat would just fail.","Model fallback: when one model is rate-limited, the request moves to another model automatically."],
+    ["Keeping logins secure","A long-lived token is risky if it ever leaks.","Short-lived JWTs with rotating refresh tokens, email OTP verification, and logout from all devices."],
+    ["Chat-only is limiting","Users want to send files and voice, and get files back.","Added image/PDF/DOCX uploads, a vision model, Whisper voice input, and tool calling to create images, PDFs and Word files."]
+  ],
+  next:[]
+},
+food:{
+  kicker:"Full-stack web app",
+  title:"Food Delivery Order Management",
+  intro:"A full-stack food ordering web app: React.js with Vite on the frontend, and Node.js, Express and MongoDB on the backend.",
+  tags:["React.js","Vite","Node.js","Express","MongoDB","Vitest","React Testing Library","Git & GitHub"],
+  links:[["▶ Demo video","https://youtu.be/68IowzW-xpQ"],["GitHub","https://github.com/rajchangeworld"]],
+  feats:[
+    ["Menu","Browse dishes and add them to the cart."],
+    ["Cart and checkout","Manage the cart, check out and get an order confirmation."],
+    ["Order tracking","Follow the order after placing it."],
+    ["OTP login","OTP-based authentication, user profiles and protected routes."],
+    ["REST APIs","Frontend connected to Express APIs and MongoDB."],
+    ["Automated tests","Tests for auth, cart, checkout and navigation."]
+  ],
+  cs:[
+    ["Pages open without login","Without protection, anyone could open checkout or profile pages directly.","OTP-based login and protected routes, so private pages need a logged-in user."],
+    ["New changes breaking old features","Changing one part, like the cart, can quietly break checkout or login.","Automated tests with Vitest and React Testing Library for auth, cart, checkout and navigation."]
+  ],
+  next:[]
+}};
+(function(){
+  var modal=document.getElementById('modal'),body=document.getElementById('mBody'),last=null;
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function render(p){
+    var h='<div class="m-head"><div class="eyebrow" style="margin:0">'+esc(p.kicker)+'</div><h2 id="mTitle">'+esc(p.title)+'</h2><p class="lead">'+esc(p.intro)+'</p>';
+    h+='<div class="btns" style="margin-top:18px">'+p.links.map(function(l,i){return '<a class="btn '+(i===0?'primary':'ghost')+'" href="'+l[1]+'" target="_blank" rel="noopener">'+esc(l[0])+'</a>'}).join('')+'</div></div>';
+    h+='<div class="m-sec"><h4>Tech stack</h4><div class="tagrow" style="margin:0">'+p.tags.map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join('')+'</div></div>';
+    h+='<div class="m-sec"><h4>What’s in the app</h4><div class="m-feats">'+p.feats.map(function(f){return '<div><b>'+esc(f[0])+'</b><p>'+esc(f[1])+'</p></div>'}).join('')+'</div></div>';
+    h+='<div class="m-sec"><h4>Problems and how I solved them</h4><div class="cs">'+p.cs.map(function(c){return '<div class="cs-row"><div class="prob"><small>Problem</small><b>'+esc(c[0])+'</b><p>'+esc(c[1])+'</p></div><div class="sol"><small>Solution</small><p>'+esc(c[2])+'</p></div></div>'}).join('')+'</div></div>';
+    if(p.next.length){h+='<div class="m-sec"><h4>What’s next</h4><ul class="clean m-next">'+p.next.map(function(n){return '<li>'+esc(n)+'</li>'}).join('')+'</ul></div>'}
+    return h;
+  }
+  function open(id,fromHash){
+    var p=PROJ[id]; if(!p)return;
+    last=document.activeElement;
+    body.innerHTML=render(p);
+    modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('lock');
+    modal.querySelector('.modal-box').scrollTop=0;
+    modal.querySelector('.modal-x').focus();
+    if(!fromHash&&location.hash!=='#'+id){try{history.replaceState(null,'','#'+id)}catch(e){}}
+  }
+  function close(){
+    if(!modal.classList.contains('open'))return;
+    modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('lock');
+    try{history.replaceState(null,'','#projects')}catch(e){}
+    if(last&&last.focus)last.focus();
+  }
+  document.querySelectorAll('[data-proj]').forEach(function(card){
+    card.addEventListener('click',function(e){if(e.target.closest('a'))return;open(card.getAttribute('data-proj'))});
+    card.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&!e.target.closest('a')){e.preventDefault();open(card.getAttribute('data-proj'))}});
+  });
+  modal.addEventListener('click',function(e){if(e.target.hasAttribute('data-close'))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  function fromHash(){var id=location.hash.slice(1);if(PROJ[id])open(id,true);else close()}
+  window.addEventListener('hashchange',fromHash);
+  if(PROJ[location.hash.slice(1)])fromHash();
 })();
 // reveal on scroll
 if('IntersectionObserver' in window){
